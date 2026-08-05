@@ -15,7 +15,7 @@
         }
 
         body {
-            background-color: #ec0000;
+            background-color: #ffffff;
             display: flex;
             justify-content: center;
         }
@@ -23,7 +23,7 @@
         .app-container {
             width: 100%;
             max-width: 414px;
-            background-color: #ec0000;
+            background-color: #ffffff;
             min-height: 100vh;
             position: relative;
             box-shadow: none;
@@ -255,6 +255,115 @@
             margin-top: 15px;
         }
 
+        /* --- GAVETA DE EXTRATO DA CONTA CORRETORA --- */
+        .extract-drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-width: 414px;
+            height: 100vh;
+            background-color: #f3f4f6;
+            z-index: 1003;
+            display: flex;
+            flex-direction: column;
+            transform: translateY(100%);
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .extract-drawer-overlay.active {
+            transform: translateY(0);
+        }
+
+        .extract-header {
+            background-color: #ec0000;
+            color: #ffffff;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .extract-back-btn {
+            font-size: 18px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #fff;
+        }
+
+        .extract-header-title {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .extract-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            padding-bottom: 40px;
+        }
+
+        .extract-period-badge {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .transaction-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .transaction-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #fde8e8;
+            color: #ec0000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .transaction-info {
+            flex: 1;
+        }
+
+        .transaction-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #222;
+            margin-bottom: 3px;
+        }
+
+        .transaction-category {
+            font-size: 11px;
+            color: #777;
+            margin-bottom: 2px;
+        }
+
+        .transaction-date {
+            font-size: 11px;
+            color: #999;
+        }
+
+        .transaction-amount {
+            font-size: 14px;
+            font-weight: bold;
+            color: #ec0000;
+            text-align: right;
+        }
+
         /* --- GAVETA DE DETALHES DE INVESTIMENTOS --- */
         .invest-drawer-overlay {
             position: fixed;
@@ -432,12 +541,12 @@
             text-align: center;
         }
 
-        /* --- CABEÇALHO DA CORRETORA --- */
+        /* --- CABEÇALHO DA CORRETORA (AMPLIADO) --- */
         .header-bg {
             background-color: #ec0000;
             color: #ffffff;
-            padding-top: 40px; 
-            padding-bottom: 25px;
+            padding-top: 50px; 
+            padding-bottom: 35px;
         }
 
         .top-nav {
@@ -445,7 +554,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 20px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .top-nav-left {
@@ -455,8 +564,8 @@
         }
 
         .hamburger-icon {
-            width: 24px;
-            height: 24px;
+            width: 26px;
+            height: 26px;
             stroke: #ffffff;
             cursor: pointer;
         }
@@ -468,18 +577,18 @@
         }
 
         .santander-logo {
-            height: 20px;
+            height: 22px;
             filter: brightness(0) invert(1);
         }
 
         .brand-divider {
-            font-size: 16px;
+            font-size: 18px;
             color: rgba(255, 255, 255, 0.6);
             font-weight: 300;
         }
 
         .broker-text {
-            font-size: 13px;
+            font-size: 14px;
             color: rgba(255, 255, 255, 0.75);
             font-weight: 600;
             letter-spacing: 1px;
@@ -488,8 +597,8 @@
 
         .top-nav-right {
             display: flex;
-            gap: 18px;
-            font-size: 20px;
+            gap: 20px;
+            font-size: 22px;
         }
 
         .top-nav-right i {
@@ -497,14 +606,14 @@
         }
 
         .broker-badge-top {
-            margin: 0 20px 15px 20px;
+            margin: 0 20px 20px 20px;
             background: rgba(0, 0, 0, 0.15);
-            padding: 6px 12px;
+            padding: 8px 14px;
             border-radius: 6px;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            font-size: 11px;
+            gap: 8px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.5px;
             text-transform: uppercase;
@@ -516,34 +625,35 @@
         }
 
         .balance-title {
-            font-size: 13px;
+            font-size: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 5px;
-            margin-bottom: 8px;
+            gap: 6px;
+            margin-bottom: 10px;
             opacity: 0.9;
         }
 
         .balance-value {
-            font-size: 30px;
+            font-size: 36px;
             font-weight: bold;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         .balance-subtitle {
-            font-size: 12px;
-            margin-bottom: 12px;
+            font-size: 13px;
+            margin-bottom: 14px;
             opacity: 0.85;
         }
 
         .balance-link {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: bold;
             text-decoration: underline;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             display: inline-block;
             color: #ffffff;
+            cursor: pointer;
         }
 
         .quick-actions {
@@ -556,26 +666,26 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             width: 75px;
             cursor: pointer;
         }
 
         .action-icon {
-            width: 48px;
-            height: 48px;
+            width: 52px;
+            height: 52px;
             background-color: #ffffff;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             color: #ec0000;
-            font-size: 18px;
+            font-size: 20px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .action-text {
-            font-size: 11px;
+            font-size: 12px;
             text-align: center;
             line-height: 1.2;
             font-weight: 500;
@@ -583,7 +693,7 @@
 
         /* --- CONTEÚDO PRINCIPAL (CORRETORA) --- */
         .main-content {
-            background-color: #f3f4f6;
+            background-color: #ffffff;
             border-top-left-radius: 24px;
             border-top-right-radius: 24px;
             margin-top: -15px;
@@ -620,6 +730,7 @@
             padding: 20px;
             margin-bottom: 20px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            border: 1px solid #f1f3f5;
         }
 
         .account-card {
@@ -629,7 +740,7 @@
             margin-bottom: 20px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.03);
             cursor: pointer;
-            border: 1px solid transparent;
+            border: 1px solid #f1f3f5;
             transition: border-color 0.2s;
         }
         .account-card:hover {
@@ -810,12 +921,41 @@
         .nav-item.active { color: #ec0000; }
         .nav-item i { font-size: 18px; }
         .nav-item span { font-size: 10px; font-weight: 600; }
+
+        /* --- TOAST DE SUCESSO PIX --- */
+        .toast-notification {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-100px);
+            background-color: #2e7d32;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            z-index: 3000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .toast-notification.show {
+            transform: translateX(-50%) translateY(0);
+        }
     </style>
 </head>
 <body>
 
 <div class="app-container">
     
+    <!-- TOAST DE NOTIFICAÇÃO DE SUCESSO -->
+    <div class="toast-notification" id="toast-notification">
+        <i class="fa-solid fa-circle-check" style="font-size: 18px;"></i>
+        <span id="toast-message">Valor resgatado com sucesso via Pix!</span>
+    </div>
+
     <!-- MENU LATERAL (DRAWER) COM NOME COMPLETO E BOTÕES CLICÁVEIS -->
     <div class="drawer-overlay" id="drawer-overlay">
         <nav class="side-drawer" id="side-drawer">
@@ -947,6 +1087,96 @@
         </div>
     </div>
 
+    <!-- MODAL: RESGATAR PARA CONTA VIA PIX -->
+    <div class="modal-overlay" id="modal-resgatar">
+        <div class="modal-sheet">
+            <div class="modal-title">
+                <span>Resgatar via Pix</span>
+                <button class="modal-close-btn" onclick="closeModal('modal-resgatar')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-form-group">
+                <label>Saldo Disponível para Resgate</label>
+                <input type="text" value="R$ 113.450,00" readonly style="font-weight: bold; color: #2e7d32;">
+            </div>
+            <div class="modal-form-group">
+                <label>Valor a Resgatar (R$)</label>
+                <input type="text" id="input-resgate-valor" value="R$ 2.500,00">
+            </div>
+            <div class="modal-form-group">
+                <label>Chave Pix de Destino</label>
+                <input type="text" value="cesar.batista@email.com (E-mail)" readonly>
+            </div>
+            <button class="modal-btn-action" onclick="realizarResgatePix()">Confirmar Resgate Pix</button>
+        </div>
+    </div>
+
+    <!-- GAVETA DE EXTRATO DA CONTA CORRETORA (TRANSAÇÕES DOS ÚLTIMOS 15 DIAS NA ZONA NORTE E APPLE) -->
+    <div class="extract-drawer-overlay" id="extract-drawer">
+        <header class="extract-header">
+            <button class="extract-back-btn" id="extract-back-btn"><i class="fa-solid fa-chevron-left"></i></button>
+            <h2 class="extract-header-title">Extrato da Conta Corretora</h2>
+        </header>
+
+        <div class="extract-body">
+            <div class="extract-period-badge">Transações recentes • Últimos 15 dias</div>
+
+            <!-- Transação 1: Apple Store -->
+            <div class="transaction-card">
+                <div class="transaction-icon"><i class="fa-brands fa-apple"></i></div>
+                <div class="transaction-info">
+                    <div class="transaction-title">Apple Store - Morumbi / Online</div>
+                    <div class="transaction-category">Dispositivos & Eletrônicos</div>
+                    <div class="transaction-date">Ontem, 14:32</div>
+                </div>
+                <div class="transaction-amount">- R$ 9.499,00</div>
+            </div>
+
+            <!-- Transação 2: Restaurante Zona Norte -->
+            <div class="transaction-card">
+                <div class="transaction-icon"><i class="fa-solid fa-utensils"></i></div>
+                <div class="transaction-info">
+                    <div class="transaction-title">Bassi Parrilla - Santana (ZN)</div>
+                    <div class="transaction-category">Alimentação & Gastronomia</div>
+                    <div class="transaction-date">Há 3 dias</div>
+                </div>
+                <div class="transaction-amount">- R$ 380,50</div>
+            </div>
+
+            <!-- Transação 3: Outro estabelecimento ZN -->
+            <div class="transaction-card">
+                <div class="transaction-icon"><i class="fa-solid fa-mug-hot"></i></div>
+                <div class="transaction-info">
+                    <div class="transaction-title">Ofner - Tucuruvi (ZN)</div>
+                    <div class="transaction-category">Cafeteria & Confeitaria</div>
+                    <div class="transaction-date">Há 5 dias</div>
+                </div>
+                <div class="transaction-amount">- R$ 92,90</div>
+            </div>
+
+            <!-- Transação 4: Restaurante ZN -->
+            <div class="transaction-card">
+                <div class="transaction-icon"><i class="fa-solid fa-pizza-slice"></i></div>
+                <div class="transaction-info">
+                    <div class="transaction-title">Pizzaria Veridiana - Santana (ZN)</div>
+                    <div class="transaction-category">Alimentação</div>
+                    <div class="transaction-date">Há 8 dias</div>
+                </div>
+                <div class="transaction-amount">- R$ 245,00</div>
+            </div>
+
+            <!-- Transação 5: Apple Store Digital -->
+            <div class="transaction-card">
+                <div class="transaction-icon"><i class="fa-brands fa-app-store-ios"></i></div>
+                <div class="transaction-info">
+                    <div class="transaction-title">Apple Services / iCloud Storage</div>
+                    <div class="transaction-category">Assinaturas e Aplicativos</div>
+                    <div class="transaction-date">Há 12 dias</div>
+                </div>
+                <div class="transaction-amount">- R$ 34,90</div>
+            </div>
+        </div>
+    </div>
+
     <!-- GAVETA DE DETALHES DA CARTEIRA DE INVESTIMENTOS (R$ 450.000,00 DISTRIBUÍDOS) -->
     <div class="invest-drawer-overlay" id="invest-drawer">
         <header class="invest-header">
@@ -1073,7 +1303,7 @@
             </div>
             <div class="balance-value mask-value" id="display-available-balance">R$ 113.450,00</div>
             <div class="balance-subtitle">Poder de compra total + margem <span class="mask-value">R$ 113.450,00</span></div>
-            <a href="#" class="balance-link">Extrato da Conta Corretora</a>
+            <a class="balance-link" id="open-extract-link">Extrato da Conta Corretora</a>
         </div>
 
         <div class="quick-actions">
@@ -1081,7 +1311,7 @@
                 <div class="action-icon"><i class="fa-solid fa-arrow-up-right-dots"></i></div>
                 <div class="action-text">Depositar</div>
             </div>
-            <div class="action-item" onclick="openModal('modal-limit')">
+            <div class="action-item" onclick="openModal('modal-resgatar')">
                 <div class="action-icon"><i class="fa-solid fa-money-bill-transfer"></i></div>
                 <div class="action-text">Resgatar</div>
             </div>
@@ -1256,6 +1486,17 @@
         document.getElementById(modalId).classList.remove('active');
     }
 
+    // Extrato da Conta Corretora (Drawer)
+    const openExtractLink = document.getElementById('open-extract-link');
+    const extractDrawer = document.getElementById('extract-drawer');
+    const extractBackBtn = document.getElementById('extract-back-btn');
+
+    function openExtractDrawer() { extractDrawer.classList.add('active'); }
+    function closeExtractDrawer() { extractDrawer.classList.remove('active'); }
+
+    openExtractLink.addEventListener('click', openExtractDrawer);
+    extractBackBtn.addEventListener('click', closeExtractDrawer);
+
     // Gaveta de Investimentos
     const openInvestDetails = document.getElementById('open-invest-details');
     const openInvestDetailsBtn = document.getElementById('open-invest-details-btn');
@@ -1280,6 +1521,21 @@
         const val = document.getElementById('input-limit-value').value;
         document.getElementById('card-limit-display').innerText = val;
         closeModal('modal-limit');
+    }
+
+    // Realizar Resgate Pix e Exibir Toast de Sucesso
+    function realizarResgatePix() {
+        const valorResgate = document.getElementById('input-resgate-valor').value;
+        closeModal('modal-resgatar');
+        
+        const toast = document.getElementById('toast-notification');
+        const toastMsg = document.getElementById('toast-message');
+        toastMsg.innerText = `Resgate de ${valorResgate} realizado com sucesso via Pix!`;
+        
+        toast.classList.add('show');
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 4000);
     }
 
     // Alternar visibilidade de valores (Olho)
